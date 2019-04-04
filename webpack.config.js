@@ -13,13 +13,24 @@ module.exports = {
     publicPath: '/',
     filename: '[name].js',
   },
+  devtool:'source-map',
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.(less|css)$/, use: ["style-loader", {loader:"css-loader",options:{modules:true}}, "less-loader"] },
+      { test: /\.(less|css)$/, 
+        use: ["style-loader", 
+        {loader:"css-loader",options:{modules:true}}, 
+        "less-loader"],
+        exclude: /node_modules/
+       },
+       { test: /\.(less|css)$/, 
+        use: ["style-loader", 
+        "css-loader", 
+        "less-loader"],
+        include: /node_modules/
+       },
       { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.(png|gif)$/, loader: 'url-loader', options: { limit: 50000, name: 'images/[name]-[hash:8].[ext]' } },
-      {test:/\.(jpg|png)$/,loader:'file-loader'},
+      { test: /\.(jpg|png|gif)$/, loader: 'url-loader', options: { limit: 50000, name: 'images/[name]-[hash:8].[ext]' } },
       { test: /\.(mp3)$/, loader: 'url-loader', options: { limit: 0, name: 'audio/[name]-[hash:8].[ext]' } },
     ]
   },
@@ -41,11 +52,18 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'dist'),
     host: '0.0.0.0',
     port: 8001,
+    inline: true,
     proxy: {
       // '/api': {
       //   target: 'http://cs.xigemall.com',
       //   changeOrigin: true,
       // },
     },
+    historyApiFallback: {
+      //使用正则匹配命中路由
+      rewrites: [
+          {from: /^\/./, to: '/'}
+      ]
+    }
   }
 }

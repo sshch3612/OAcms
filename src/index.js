@@ -1,9 +1,6 @@
 import dva from 'dva';
 import createHistory from 'history/createBrowserHistory';
-// import createLoading from 'dva-loading';
-import './index.css';
-import * as a from 'dva';
-console.log(a,333);
+import createLoading from 'dva-loading';
 
 // 1. Initialize
 const app = dva({
@@ -11,10 +8,10 @@ const app = dva({
 });
 
 // 2. Plugins
-// app.use({});
+app.use(createLoading());
 
 // 3. Model
-app.model(require('./models/example').default);
+app.model(require('./models/global').default);
 
 // 4. Router
 app.router(require('./router').default);

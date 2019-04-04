@@ -1,16 +1,42 @@
 import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './routes/IndexPage';
-import Home from './routes/Home';
+import { routerRedux, Router, Route, Switch } from 'dva/router';
+import { LocaleProvider, Spin } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
+import dynamic from 'dva/dynamic';
+import { getRouterData } from './common/router';
+import Authorized from './utils/Authorized';
+import styles from './index.less';
+// import  Page from './layouts/BasicLayout'
+import  Page from './routes/Home'
 
-function RouterConfig({ history }) {
+
+const { ConnectedRouter } = routerRedux;
+const { AuthorizedRoute } = Authorized;
+dynamic.setDefaultLoadingComponent(() => {
+  return <Spin size="large" className={styles.globalSpin} />;
+});
+
+function RouterConfig({ history, app }) {
+  const routerData = getRouterData(app);
+  const UserLayout = routerData['/user'].component;
+  const BasicLayout = routerData['/'].component;
   return (
-    <Router history={history}>
-      <Switch>
-        <Route path="/" exact component={IndexPage} />
-        <Route path="/home" exact component={Home} />
-      </Switch>
-    </Router>
+    <LocaleProvider locale={zhCN}>
+      <Router history={history}>
+        <Switch>
+          <Route
+            path="/user"
+            component={UserLayout}
+          />
+          <AuthorizedRoute
+            path="/"
+            render={props => <BasicLayout {...props} />}
+            authority={['admin', 'user']}
+            redirectPath="/user/login"
+          />
+        </Switch>
+      </Router>
+    </LocaleProvider>
   );
 }
 
