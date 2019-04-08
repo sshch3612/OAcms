@@ -16,7 +16,12 @@ const menuData = [{
     // hideInBreadcrumb: true,
     // hideInMenu: true,
   }],
-}, {
+}, 
+{
+  name: '组件',
+  path: 'components',
+}
+,{
   name: '表单页',
   icon: 'form',
   path: 'form',

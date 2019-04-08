@@ -73,6 +73,33 @@ export const getRouterData = (app) => {
     '/': {
       component: dynamicWrapper(app, ['user', 'login'], () => import('../layouts/BasicLayout')),
     },
+    '/components': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent')),
+    },
+    '/components/spin': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent/Spin')),
+    },
+    '/components/dropdown': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent/DropDown')),
+    },
+    '/components/icon': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent/Icon')),
+    },
+    '/components/button': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent/Button')),
+    },
+    '/components/input': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent/Input')),
+    },
+    '/components/tabs': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent/Tabs')),
+    },
+    '/components/alert': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent/Alert')),
+    },
+    '/components/animate': {
+      component: dynamicWrapper(app, [], () => import('../routes/SelfComponent/Animate')),
+    },
     '/dashboard/analysis': {
       component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),
     },

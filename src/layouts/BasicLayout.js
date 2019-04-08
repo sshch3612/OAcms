@@ -170,7 +170,7 @@ class BasicLayout extends React.PureComponent {
     }
   }
   render() {
-    console.log(34444,33,this.props);
+    console.log('basiclayout',this.props);
     const {
       currentUser, collapsed, fetchingNotices, notices, routerData, match, location,
     } = this.props;

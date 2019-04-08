@@ -11,7 +11,7 @@
 
 > 静态文件加载 file-loader  url-loader
 
-###devServer
+### devServer
 >devServer.hot 启用模块热替换功能
 
 >inline 实时预览功能
@@ -35,5 +35,8 @@
 
 >open  首次启动要打开的浏览器/网址
 
-###webpack文件变更,自动编译
+### webpack文件变更,自动编译
 >nodemon --watch webpack.config.js --exec \" webp“
+
+###  编译进度显示
+>webpack-dev-server --progress --colors

@@ -1,7 +1,8 @@
 const path = require('path');
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
+const baseConfig  = require('./config/config');
 
 module.exports = {
   mode: 'development',
@@ -21,17 +22,17 @@ module.exports = {
         use: ["style-loader", 
         {loader:"css-loader",options:{modules:true}}, 
         "less-loader"],
-        exclude: /node_modules/
+        exclude: baseConfig.cssModulesExcludes || []
        },
        { test: /\.(less|css)$/, 
         use: ["style-loader", 
         "css-loader", 
         "less-loader"],
-        include: /node_modules/
-       },
+        include: baseConfig.cssModulesExcludes || []
+      },
       { test: /\.html$/, loader: 'html-loader' },
       { test: /\.(jpg|png|gif)$/, loader: 'url-loader', options: { limit: 50000, name: 'images/[name]-[hash:8].[ext]' } },
-      { test: /\.(mp3)$/, loader: 'url-loader', options: { limit: 0, name: 'audio/[name]-[hash:8].[ext]' } },
+      { test: /\.(mp3|eot|svg|ttf|woff|woff2|otf)$/, loader: 'url-loader', options: { limit: 0, name: 'audio/[name]-[hash:8].[ext]' } },
     ]
   },
   plugins: [

@@ -22,7 +22,7 @@ function RouterConfig({ history, app }) {
   const BasicLayout = routerData['/'].component;
   return (
     <LocaleProvider locale={zhCN}>
-      <Router history={history}>
+      <ConnectedRouter history={history}>
         <Switch>
           <Route
             path="/user"
@@ -35,7 +35,7 @@ function RouterConfig({ history, app }) {
             redirectPath="/user/login"
           />
         </Switch>
-      </Router>
+      </ConnectedRouter>
     </LocaleProvider>
   );
 }

@@ -1,0 +1,50 @@
+.model-mask{
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  background-color:rgba(0,0,0,.3);
+  z-index: 888;
+}
+.model{
+  min-width: 270px;
+  max-width: 85%;
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate3d(-50%,-50%,0);
+  background-color: #ffffff;
+  color:#000000;
+  font-size:14px;
+  border-radius: 5px;
+  z-index: 889;
+  padding-top:5px;
+  text-align: center;
+}
+.model-header{
+  padding:5px 15px;
+}
+.model-content{
+  padding:0 15px;
+}
+.model-actions{
+  display: flex;
+}
+.model-actions-alert{
+  flex-direction: column;
+}
+.model-actions-confirm{
+  flex-direction: row;
+}
+.model-actions-confirm{
+  flex-direction: row;
+}
+.model-actions-prompt{
+
+}
+.model-actions-btn{
+  flex:1;
+  flex-shrink: 0;
+  padding:5px 15px;
+}

@@ -1,0 +1,33 @@
+.form-control{
+  display: flex;
+  padding:8px 12px;
+  font-size:17px;
+  border: 1px solid #c0c0c0;
+  background-color: #ffffff;
+  align-items: center;
+  .input-control{
+    flex:1;
+      input{
+        width: 100%;
+        padding:2px 0;
+        background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+        border:none;
+        outline: none;
+        font-size: 17px;
+        line-height: 1;
+        -webkit-appearance:none;
+      }
+  }
+  .addBefore{
+    width:85px;
+    font-size: 17px;
+    margin-left: 0;
+    margin-right: 5px;
+    line-height: 1.12;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    // padding: 2px 0;
+  }
+}
+
