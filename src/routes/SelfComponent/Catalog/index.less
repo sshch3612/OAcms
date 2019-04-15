@@ -1,13 +1,13 @@
+@import '../theme.less';
 .catalog{
   height: 100%;
-  display: flex;
   flex-direction: column;
   min-width: 140px;
-  border:1px solid #5f9fe7;
+  border:1px solid @gray-color;
+  padding:10px 15px;
   margin-bottom: 15px;
-  &>div{
-    padding:8px 20px;
+  &>a{
+    margin-right:5px;
     cursor: pointer;
-    border-bottom:1px solid #5f9fe7;
   }
 }

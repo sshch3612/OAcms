@@ -19,7 +19,7 @@ export default class extends React.Component{
     const {type, size, color} = this.props;
     const iconStyle = {
       fontSize: `${size}px`,
-      color: color
+      color: color,
     }
     return(<i className={`iconfont ${type}`} style={iconStyle} aria-hidden="true"></i>)
   }

@@ -53,6 +53,7 @@ export default (function() {
       });
     return;
   };
+  
   Toast.prototype.success = function( content,
     duration = 1000,
     onClose = null,

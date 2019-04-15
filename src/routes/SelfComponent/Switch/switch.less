@@ -1,0 +1,38 @@
+@height:32px;
+@width:64px;
+.switch{
+  input{
+    display: none;
+  }
+  .checkbox{
+    box-sizing: content-box;
+    width:@width;
+    height:@height;
+    border-radius: @height/2;
+    background-color:transparent;
+    position: relative;
+    transition: all .3s ;
+    border:.5px solid #c0c0c0;
+    cursor:pointer;
+    &>span{
+      display: inline-block;
+      height: @height;
+      width:@height;
+      border-radius: 50%;
+      background-color:#ffffff;
+      position: absolute;
+      transition: all .3s ;
+      box-shadow: 1px 1px 1px #c0c0c0;
+    }
+    &-active{
+      background-color:red ;
+      border-color: red;
+      &>span{
+        transform: translateX(@width - @height)
+      }
+    }
+    &-disabled{
+      opacity: .4;
+    }
+  }
+}

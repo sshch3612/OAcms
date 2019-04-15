@@ -1,0 +1,46 @@
+@lineheight:4px;
+
+.slider{
+  position: relative;
+  margin-top:40px;
+  &-disabled{
+    opacity: .3;
+    pointer-events: none;
+  }
+  &-line{
+    height: @lineheight;
+    background-color:transparent;
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &-line-left{
+    // width:60%;
+    height: @lineheight;
+    background-color:red;
+    position: absolute;
+    top:0;
+  }
+
+  &-line-right{
+    // width:40%;
+    height: @lineheight;
+    position: absolute;
+    right:0;
+    background-color:blue;
+    top:0;
+  }
+  &-line-control{
+    height:26px;
+    width:26px;
+    border-radius: 50%;
+    background-color:olivedrab;
+    position: absolute;
+    // left:60%;
+    top:@lineheight/2;
+    transform: translate3d(-50%,-50%,0);
+    z-index: 2;
+  }
+}

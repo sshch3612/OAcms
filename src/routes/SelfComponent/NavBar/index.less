@@ -1,0 +1,26 @@
+.navbar{
+  height:45px;
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+  
+  &-left,&-title,&-right{
+    display: flex;
+    height: 100%;
+    flex:1;
+    align-items: center;
+  }
+
+  &-left{
+    padding-left:15px;
+    font-size:16px;
+  }
+  &-title{
+    font-size:18px;
+    justify-content: center;
+  }
+  &-right{
+    padding-right:15px;
+    justify-content: flex-end;
+  }
+}
